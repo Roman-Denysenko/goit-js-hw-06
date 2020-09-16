@@ -1,75 +1,24 @@
-// Задача 5 - 3
-// использование методов класса
-// Напиши класс Storage, который будет создавать объекты для управления
-// складом товаров.При вызове будет получать один аргумент - начальный
-// массив товаров, и записывать его в свойство items.
+// Задача 6 - 3
+// filter, map
+// Получи массив имен пользователей(значение свойства name) по полу
+//   (значение свойства gender).
 
-// Добавь методы класса:
+// Используй деструктурирующее присваивание для параметра функции({ name })
+// без пробелов и переносов на новую строку.
 
-// getItems() - возвращает массив текущих товаров
-// addItem(item) - получает новый товар и добавляет его к текущим
-// removeItem(item) - получает товар и, если он есть, удаляет его из текущих
+// Используй только перебирающие методы массива которые не изменяют
+//   (не мутируют) исходный массив.Т.е.нельзя использовать for, splice,
+//     push и т.п.мутирующие методы.
 
 // Write code under this line
+const getUsersWithGender = (array, gender) =>
+  array.filter((item) => item.gender === gender).map(({ name }) => name);
 
-class Storage {
-  constructor(array) {
-    this.items = array;
-    // this.items = items;
-  }
+// console.log(getUsersWithGender(users, 'male'));
 
-  getItems(array) {
-    return this.items;
-  }
-
-  addItem(item) {
-    for (let arrayItem of this.items) {
-      if (arrayItem !== item) {
-        this.items.push(item);
-        break;
-      }
-    }
-  }
-
-  removeItem(item) {
-    for (let i = 0; i < this.items.length; i += 1) {
-      if (this.items[i] === item) {
-        this.items.splice(i, 1);
-      }
-    }
-  }
-}
-
-// console.log(typeof Storage);
-// 'function'
-
-const goods = ["Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор"];
-
-const storage = new Storage(goods);
-
-console.log(storage.getItems());
 /* [
-  'Нанитоиды',
-  'Пролонгер',
-  'Железные жупи',
-  'Антигравитатор'
-] */
-
-storage.addItem("Дроид");
-console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Пролонгер',
-  'Железные жупи',
-  'Антигравитатор',
-  'Дроид'
-] */
-
-storage.removeItem("Пролонгер");
-console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Железные жупи',
-  'Антигравитатор',
-  'Дроид'
+  "Moore Hensley",
+  "Ross Vazquez",
+  "Carey Barr",
+  "Blackburn Dotson"
 ] */
